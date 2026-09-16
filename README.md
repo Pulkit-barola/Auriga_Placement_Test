@@ -143,3 +143,38 @@ Common issues:
 - `test_pricing.py`: pricing, inventory, seat, and messy-import regression tests.
 - `REASONING.md`: design decisions and trade-offs.
 - `AI_LOGS.md`: conversation log required by the placement brief.
+
+## Architecture
+
+```mermaid
+flowchart LR
+	Browser[Cinema Website<br/>HTML CSS JavaScript] -->|GET /api/config| Server[Python HTTP Server<br/>server.py]
+	Browser -->|GET /api/movies| Server
+	Browser -->|POST /api/quote| Server
+	Browser -->|POST /api/book| Server
+	Browser -->|POST /api/prices/import| Server
+	Server --> Pricing[Pricing Engine<br/>pricing.py]
+	Server --> Database[SQLite Database<br/>database.py / auriga.db]
+	Server -->|Optional live catalogue| TMDB[TMDB API]
+	Pricing --> Database
+```
+
+### Request flow
+
+1. The browser requests show configuration, seat inventory, and movie data.
+2. The browser sends selected seats and member status to the quote endpoint.
+3. `pricing.py` validates seats and calculates the authoritative total with `Decimal`.
+4. The browser displays the returned itemized receipt; it does not calculate the final amount itself.
+5. The booking endpoint validates again, reserves the exact seats, saves the booking in SQLite, and returns a reference.
+6. The price import endpoint cleans the uploaded data, saves its audit report, and applies the normalized prices to future quotes.
+
+### Responsibilities
+
+| Layer | Responsibility |
+| --- | --- |
+| `static/index.html` | Website views, booking form, seat popup, price import screen |
+| `static/app.js` | Navigation, API calls, live movie cards, receipt rendering, interactions |
+| `static/styles.css` | Responsive design, layout, hover states, and animations |
+| `server.py` | HTTP routing, request validation, TMDB integration, API responses |
+| `pricing.py` | Money arithmetic, discounts, GST, seat validation, import cleanup |
+| `database.py` | SQLite schema, booking persistence, seat persistence, import reports |
