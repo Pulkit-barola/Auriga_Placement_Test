@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auriga Multiplex | Counter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=5">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Auriga Multiplex home"><span class="brand-mark">A</span><span>AURIGA<span class="brand-muted">/CINEMA</span></span></a>
+    <nav class="main-nav" aria-label="Main navigation"><button class="nav-link active" data-view="home">Home</button><button class="nav-link" data-view="movies">Movies</button><button class="nav-link" data-view="offers">Offers</button><button class="nav-link" data-view="pricing">Price list</button><button class="nav-link" data-view="bookings">My bookings</button></nav>
+    <div class="topbar-status"><span class="status-dot"></span> LIVE INVENTORY <span class="divider">|</span> FRIDAY 16 OCT</div>
+  </header>
+  <main class="shell">
+    <section id="home-view" class="site-view active-view">
+      <section class="hero-banner"><div><p class="eyebrow">NOW SHOWING · AURIGA MULTIPLEX</p><h1>Make tonight<br><em>movie night.</em></h1><p class="hero-copy">Find your seat, grab your ticket, and settle in. Your Friday night starts here.</p><button class="hero-button" data-view="movies">Explore movies <span>→</span></button></div><div class="hero-reel"><span>04</span><small>SCREENS<br>PLAYING</small></div></section>
+      <section class="section-heading"><div><p class="eyebrow">CURATED FOR YOU</p><h2>What's playing</h2></div><button class="text-button" data-view="movies">View all movies →</button></section>
+      <div id="home-movie-grid" class="movie-grid"><article class="movie-card featured-card"><div class="movie-art art-midnight"><span>FRIDAY<br>NIGHT</span><small>AT THE MULTIPLEX</small></div><div class="movie-card-info"><div><h3>Friday Night at the Multiplex</h3><p>Drama · 2h 18m · U/A</p></div><button class="round-arrow" data-book-show>→</button></div></article><article class="movie-card"><div class="movie-art art-comet"><span>THE<br>LAST<br>COMET</span><small>SCI-FI · 2D</small></div><div class="movie-card-info"><div><h3>The Last Comet</h3><p>Sci-fi · 2h 04m · U/A</p></div><button class="round-arrow" data-view="movies">→</button></div></article><article class="movie-card"><div class="movie-art art-paper"><span>PAPER<br>MOONS</span><small>ROMANCE · 2D</small></div><div class="movie-card-info"><div><h3>Paper Moons</h3><p>Romance · 1h 52m · U</p></div><button class="round-arrow" data-view="movies">→</button></div></article></div>
+      <section class="home-strip"><div><span class="strip-icon">%</span><strong>Friday Festival</strong><p>Flat ₹100 off every booking tonight</p></div><button class="text-button" data-view="offers">See all offers →</button></section>
+    </section>
+    <section id="movies-view" class="site-view">
+      <section class="page-heading"><p class="eyebrow">AURIGA MULTIPLEX · 04 SCREENS</p><h1>Movies worth<br><em>leaving home for.</em></h1><p>Book your favourite seats for tonight's shows.</p></section><div class="movie-grid expanded-grid"><article class="movie-card featured-card"><div class="movie-art art-midnight"><span>FRIDAY<br>NIGHT</span><small>AT THE MULTIPLEX</small></div><div class="movie-card-info"><div><h3>Friday Night at the Multiplex</h3><p>Drama · 2h 18m · U/A</p><b>Today · 9:30 PM · Screen 04</b></div><button class="book-small" data-book-show>Book now</button></div></article><article class="movie-card"><div class="movie-art art-comet"><span>THE<br>LAST<br>COMET</span><small>SCI-FI · 2D</small></div><div class="movie-card-info"><div><h3>The Last Comet</h3><p>Sci-fi · 2h 04m · U/A</p><b>Today · 7:15 PM · Screen 02</b></div><button class="book-small" data-view="booking">Book now</button></div></article><article class="movie-card"><div class="movie-art art-paper"><span>PAPER<br>MOONS</span><small>ROMANCE · 2D</small></div><div class="movie-card-info"><div><h3>Paper Moons</h3><p>Romance · 1h 52m · U</p><b>Today · 8:00 PM · Screen 01</b></div><button class="book-small" data-view="booking">Book now</button></div></article></div>
+    </section>
+    <section id="offers-view" class="site-view"><section class="page-heading"><p class="eyebrow">GOOD NIGHTS, BETTER VALUE</p><h1>Make your ticket<br><em>go further.</em></h1><p>Offers designed for movie people.</p></section><div class="offer-grid"><article><span class="offer-number">01</span><h2>Festival Friday</h2><p>Enjoy a flat ₹100 off your ticket subtotal on every booking tonight.</p><button class="text-button" data-view="booking">Use offer →</button></article><article><span class="offer-number">02</span><h2>Member pricing</h2><p>Members save 10% on tickets, capped at ₹200. Toggle it on at checkout.</p><button class="text-button" data-view="booking">Book as member →</button></article><article><span class="offer-number">03</span><h2>Easy counter pickup</h2><p>Reserve your exact seats online and collect your ticket at the counter.</p><button class="text-button" data-view="booking">Choose seats →</button></article></div></section>
+    <section id="pricing-view" class="site-view"><section class="page-heading"><p class="eyebrow">OPERATIONS · PRICE CONTROL</p><h1>Import a messy<br><em>price list.</em></h1><p>Paste CSV rows or upload a file. We clean, merge, and explain every decision.</p></section><div class="import-layout"><form id="price-import-form" class="import-panel"><h2>Drop in your source data</h2><input id="price-file" type="file" accept=".csv,text/csv"><small id="file-name">or paste rows below</small><textarea id="price-content" rows="9" spellcheck="false">Seat Class,Price&#10;silver, ₹180&#10;GOLD,2,60.00&#10;Recliner, INR 420&#10;Silver,&#10;Gold,-250&#10;VIP,900</textarea><button class="hero-button" type="submit">Clean and import <span>→</span></button></form><div id="price-report" class="report-panel"><h2>Import report</h2><p>Cleaned, duplicate, and rejected rows appear here.</p></div></div></section>
+    <section id="bookings-view" class="site-view"><section class="page-heading"><p class="eyebrow">YOUR AURIGA JOURNEY</p><h1>My bookings</h1><p>Confirmed tickets from this browser session appear here.</p></section><div id="booking-history" class="booking-history"><div class="history-empty"><span>□</span><h2>No bookings yet</h2><p>Your confirmed tickets will show up here.</p><button class="hero-button" data-view="movies">Find a movie <span>→</span></button></div></div></section>
+    <section id="booking-view" class="site-view">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">BOX OFFICE · TONIGHT'S SCREENING</p>
+        <h1 id="show-title">Friday Night<br><em>at the Multiplex</em></h1>
+        <p class="subhead"><span id="cinema-name">Auriga Multiplex</span><span class="bullet">·</span><span id="show-time">9:30 PM</span><span class="bullet">·</span>Screen 04</p>
+      </div>
+      <div class="round-tag"><span>SCREEN</span><strong>04</strong></div>
+    </section>
+    <div id="alert" class="alert" role="alert" hidden></div>
+    <section class="workspace">
+      <div class="selection-panel">
+        <div class="panel-heading"><div><p class="eyebrow">01 / SELECT SEATS</p><h2>Pick your seats</h2></div><span class="seat-count"><strong id="seat-total">0</strong> seats</span></div>
+        <div class="guest-form">
+          <label><span>Guest name</span><input id="guest-name" type="text" placeholder="Name on booking" autocomplete="name"></label>
+          <label><span>Mobile number <small>(optional)</small></span><input id="guest-phone" type="tel" placeholder="10-digit number" autocomplete="tel" inputmode="numeric"></label>
+        </div>
+        <div class="seat-picker-summary"><div><span class="summary-label">YOUR SEATS</span><strong id="seat-summary">No seats selected</strong></div><button id="open-seat-picker" class="outline-button" type="button">Choose seats <span>↗</span></button></div>
+        <div class="offer-block">
+          <div class="offer-icon">%</div>
+          <div><strong>Festival Friday</strong><p>Flat <span id="festival-value">₹100.00</span> off every booking</p></div>
+          <span class="included">INCLUDED</span>
+        </div>
+        <label class="member-toggle"><input type="checkbox" id="member"><span class="toggle-ui"></span><span><strong>Member pricing</strong><small>Save <span id="member-rate">10</span>% on the ticket subtotal</small></span><span class="cap-note">CAP ₹<span id="member-cap">200</span></span></label>
+      </div>
+      <aside class="receipt-panel">
+        <div class="receipt-top"><p class="eyebrow">02 / YOUR RECEIPT</p><span class="receipt-live">PREVIEW</span></div>
+        <div id="empty-receipt" class="empty-receipt"><span class="empty-icon">+</span><p>Your itemized total<br>will appear here.</p></div>
+        <div id="receipt" hidden>
+          <div id="ticket-lines" class="receipt-lines"></div>
+          <div class="receipt-seat-line"><span>Seats</span><strong id="receipt-seats">—</strong></div>
+          <div class="receipt-rule"></div>
+          <div class="receipt-row"><span>Ticket subtotal</span><strong id="subtotal">₹0.00</strong></div>
+          <div class="receipt-row discount"><span>Festival Friday</span><strong id="festival-discount">− ₹0.00</strong></div>
+          <div class="receipt-row discount"><span>Member saving</span><strong id="member-discount">− ₹0.00</strong></div>
+          <div class="receipt-row"><span>Convenience fee <small>(per seat)</small></span><strong id="fee">₹0.00</strong></div>
+          <div class="receipt-row"><span>GST <small id="gst-rate">18</small>%</span><strong id="gst">₹0.00</strong></div>
+          <div class="total-row"><span>PAYABLE NOW</span><strong id="total">₹0.00</strong></div>
+          <button id="book-button" class="book-button" type="button">Confirm booking <span>→</span></button>
+          <p class="fine-print">Prices include all applicable taxes. Exact to the paisa.</p>
+        </div>
+      </aside>
+    </section>
+    </section><footer><span>AURIGA CINEMA</span><span>All prices in INR</span><span>Movies are better together</span></footer>
+  </main>
+  <div id="seat-picker-modal" class="modal-backdrop seat-picker-backdrop" hidden><div class="seat-picker-modal"><button id="close-seat-picker" class="close-button" aria-label="Close seat picker" type="button">×</button><p class="eyebrow">SEAT MAP · SCREEN 04</p><h2>Choose your seats</h2><p class="picker-note">Front of screen at top. Select or deselect any available seat.</p><div class="seat-toolbar"><span>LIVE INVENTORY</span><div class="seat-legend"><span><i class="legend-seat available"></i>Available</span><span><i class="legend-seat selected"></i>Selected</span><span><i class="legend-seat taken"></i>Sold</span></div></div><div id="seat-map" class="seat-map"></div><div id="selected-seats" class="selected-seats"><span class="selected-label">Selected seats</span><span class="selected-empty">Choose seats from the map</span></div><button id="done-seat-picker" class="book-button" type="button">Done selecting <span>→</span></button></div></div>
+  <div id="success-modal" class="modal-backdrop" hidden><div class="success-modal"><button id="close-modal" class="close-button" aria-label="Close" type="button">×</button><div class="success-check">✓</div><p class="eyebrow">BOOKING CONFIRMED</p><h2>Enjoy the show.</h2><p id="success-message">Your seats are held. Keep this reference for the counter.</p><div class="booking-ref" id="booking-ref"></div><div class="success-seats" id="success-seats"></div><button id="new-booking" class="book-button" type="button">Start another booking <span>→</span></button></div></div>
+  <script src="/static/app.js?v=7"></script>
+</body>
+</html>
